@@ -21,7 +21,7 @@ module.exports=(err,req,res,next)=>{
             error=new ErrorHandler(message,400)
         }
         // Handling Mongoose Error
-        if(err.name='ValidationError'){
+        if(err.name=='ValidationError'){
             const message=Object.values(err.errors).map(value=>value.message)
             error=new ErrorHandler(message,400)
         }
