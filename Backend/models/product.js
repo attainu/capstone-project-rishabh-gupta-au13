@@ -1,5 +1,6 @@
 const mongoose=require("mongoose");
-// const User=require('./user')
+const catchAsyncError = require("../middlewares/catchAsyncError");
+
 const productSchema=new mongoose.Schema({
     name:{
         type:String,
@@ -70,6 +71,12 @@ const productSchema=new mongoose.Schema({
     },
     reviews:[
         {
+            user:{
+                type:mongoose.Schema.ObjectId,
+                ref:'User',
+                required:true
+        
+            },
             name:{
                 type:String,
                 required:true
@@ -96,5 +103,7 @@ const productSchema=new mongoose.Schema({
     }
 
 })
+
+
 
 module.exports=mongoose.model('Product',productSchema)
