@@ -4,6 +4,7 @@ import Footer from './components/layout/footer'
 import Home from './components/home'
 import ProductsDetails from './components/product/productDetails'
 import Login from './components/user/Login'
+import Register from './components/user/register';
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
             <Route path="/" component={Home} exact />
           <Route path="/product/:id" component={ProductsDetails} exact />
           <Route path="/login" component={Login} />
-          
+          <Route path="/register" component={Register} />
+
+
         </div>
         <Footer/>
       </div>
