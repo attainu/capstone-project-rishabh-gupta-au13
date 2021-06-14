@@ -27,15 +27,14 @@ body {
 }
 
 nav {
-  background-color: #7cb1f2;
+  background-color: #7db2f2;
   padding: 1rem 1rem;
 }
 
-#logo{
-  padding: 0rem 0rem;
-  height: 6.5rem;
-  margin: 0rem,0rem;
-  
+#logo {
+  width: 250px;
+  height: 56px;
+  position: absolute;
   
 }
 #search_btn {
@@ -47,6 +46,7 @@ nav {
 .input-group {
   width: 90%;
   margin-right: 35%;
+  margin-left: 40%;
 }
 
 #search_field {

@@ -15,7 +15,7 @@ const Login = ({history}) => {
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { isAuthenticated, error } = useSelector(state => state.auth);
+    const { isAuthenticated, error,loading } = useSelector(state => state.auth);
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -26,11 +26,11 @@ const Login = ({history}) => {
             dispatch(clearErrors());
         }
         
-    },[dispatch,error,isAuthenticated,error,history])
+    },[dispatch,alert,isAuthenticated,error,history])
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(login(email.password))
+        dispatch(login(email,password))
     }
     return (
         <Fragment>
