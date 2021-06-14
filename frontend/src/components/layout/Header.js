@@ -7,9 +7,9 @@ const Header = () => {
   return (
     <Fragment>
       <nav className="navbar row">
-        <div className="col-12 col -md-3">
+        <div className="col-12  -md-3">
           <div className="navbar-brand">
-            <img src="./images/logo.png" id="logo"></img>
+            <img src="./images/slogo.jpg" id="logo"></img>
           </div>
         </div>
 
