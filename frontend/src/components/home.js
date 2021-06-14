@@ -2,7 +2,7 @@ import React,{ Fragment, useEffect } from "react"
 
 import MetaData from './layout/MetaData'
 import Product from './product/product'
-import Loader from "./layout/Loader"
+import Loader from "./layout/loader"
 import { useDispatch, useSelector } from 'react-redux'
 import {getProducts} from '../actions/productActions'
 import { useAlert } from "react-alert"
