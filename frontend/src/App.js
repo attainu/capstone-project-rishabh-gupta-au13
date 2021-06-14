@@ -16,6 +16,7 @@ function App() {
           <Route path="/product/:id" component={ProductsDetails} exact />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/search/:keyword" component={Home} />
 
 
         </div>
