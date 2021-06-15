@@ -179,7 +179,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
 }
 
 //forgot Password
-export const forgoptPassword = (email) => async (dispatch) => {
+export const forgotPassword = (email) => async (dispatch) => {
     try {
         dispatch({
             type: FORGOT_PASSWORD_REQUEST,
