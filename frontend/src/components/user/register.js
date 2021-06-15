@@ -32,7 +32,7 @@ const Register = (history) => {
             dispatch(clearErrors());
         }
         
-    },[dispatch,error,isAuthenticated,error,history])
+    },[dispatch,alert,isAuthenticated,error,history])
 
     const submitHandler = (e) => {
         e.preventDefault();

@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Route } from "react-router-dom";
+import Search from "./Search";
 import { useAlert } from 'react-alert'
 import { logout } from '../../actions/userActions'
 
@@ -21,26 +23,15 @@ const Header = () => {
                 <div className="col-12 col -md-3">
                     <div className="navbar-brand">
                         <Link to="/">
-                            <img src="/images/logo.png" id="logo"></img>
+                            <img src="/images/slogo.jpg" id="logo"/>
                         </Link>
                     </div>
                 </div>
-                
+
                 <div className="col-12 col-md-6 mt-2 mt-md-0">
-                    <div className="input-group">
-                        <input
-                            type="text"
-                            id="search_field"
-                            className="form-control"
-                            placeholder="enter product name .."
-                        />
-                        <div className="input-group-append">
-                            <button id="search_btn" className="btn">
-                                <i className="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <Route render={({history})=><Search history={history}/>}/>
                 </div>
+                
 
                 <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
                     <Link to="/cart" style={{textDecoration:'none'}}>
@@ -49,7 +40,7 @@ const Header = () => {
                     </Link>
                     {user ? (
                         <div className="ml-4 dropdown d-inline">
-                            <Link to="!#" className="btn dropdwon-toggle text-white"
+                            <Link to="!#" className="btn dropdwon-toggle text-white mr-4"
                                 type="button" id="dropDownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {user && user.name}
                             </Link>
@@ -69,8 +60,8 @@ const Header = () => {
                 </div>       
             </nav>
 
-        </Fragment>
-        )
-}
+    </Fragment>
+  );
+};
 
-export default Header
+export default Header;

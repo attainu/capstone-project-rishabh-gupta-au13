@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { Carousel } from 'react-bootstrap'
+import MetaData from '../layout/MetaData'
+
 
 
 import { useAlert } from 'react-alert'
@@ -25,6 +27,7 @@ const ProductsDetails = ({match}) => {
     
     return (
         <Fragment>
+                <MetaData title={product.name}/>
                 <div className="row d-flex justify-content-around">
                     <div className="col-12 col-lg-5 img-fluid" id="product_image">
                         <Carousel pause='hover'>

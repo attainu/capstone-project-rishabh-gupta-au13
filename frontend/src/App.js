@@ -7,6 +7,9 @@ import ProductsDetails from './components/product/productDetails'
 import Login from './components/user/Login'
 import Register from './components/user/register';
 import Profile from './components/user/profile';
+import UpdateProfile from './components/user/UpdateProfile';
+import UpdatePassword from './components/user/UpdatePassword';
+import ForgotPassword from './components/user/ForgotPasswordd';
 
 import ProtectedRoute from './components/route/ProtectedRoute';
 import { loadUser } from './actions/userActions'
@@ -23,11 +26,17 @@ function App() {
       <div className="App">
         <Header />
         <div className="container container-fluid">
-            <Route path="/" component={Home} exact />
+          <Route path="/" component={Home} exact />
+          <Route path="/search/:keyword" component={Home} />
           <Route path="/product/:id" component={ProductsDetails} exact />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <ProtectedRoute path="/me" component={Profile} exact/>
+          <Route path="/password/forgot" component={ForgotPassword} exact/>
+          <ProtectedRoute path="/me" component={Profile} exact />
+          <ProtectedRoute path="/me/update" component={UpdateProfile} exact/>
+          <ProtectedRoute path="/password/update" component={UpdatePassword} exact/>
+
+          
 
 
         </div>

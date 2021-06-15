@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Loader = () => {
+const loader = () => {
     return (
-        <div className="loader"> </div>
+        <div className='loader'></div>
     )
 }
 
-export default Loader
+export default loader

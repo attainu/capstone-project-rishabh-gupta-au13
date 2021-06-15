@@ -9,14 +9,14 @@ import {
     PRODUCT_DETAILS_SUCCESS
 } from '../constants/productConstants'
 
-export const getProducts = () => async (dispatch) => {
+export const getProducts = (keyword='',currentPage=1) => async (dispatch) => {
     try {
         dispatch({
             type: ALL_PRODUCTS_REQUEST
         })
         
-        const { data } = await axios.get('/api/v1/products')
-        console.log(data)
+        const { data } = await axios.get(`/api/v1/products?keyword=${keyword}&page=${currentPage}`)
+        // console.log(data)
 
         dispatch({
             type: ALL_PRODUCTS_SUCCESS,
