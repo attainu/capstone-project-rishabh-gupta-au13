@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Pagination } from "react-bootstrap";
+import  Pagination  from "react-js-pagination";
 
 import MetaData from './layout/MetaData'
 import Product from './product/product'
@@ -30,8 +30,8 @@ const keyword=match.params.keyword
   }, [dispatch, alert, error,keyword,currentPage]);
 
   function setCurrentPageNo(pageNumber) {
-      console.log('hello')
-      console.log(pageNumber)
+      // console.log('hello')
+      // console.log(pageNumber)
     setCurrentPage(pageNumber);
   }
 
@@ -54,7 +54,6 @@ const keyword=match.params.keyword
           <div className="d-flex justify-content-center mt-5">
           <Pagination
             activePage={currentPage}
-            
             itemsCountPerPage={resPerPage}
             totalItemsCount={productCount}
             onChange={setCurrentPageNo}
