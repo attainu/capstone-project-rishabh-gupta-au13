@@ -4,6 +4,7 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/footer'
 import Home from './components/home'
 import ProductsDetails from './components/product/productDetails'
+import Cart from './components/cart/Cart';
 import Login from './components/user/Login'
 import Register from './components/user/register';
 import Profile from './components/user/profile';
@@ -35,6 +36,7 @@ function App() {
           <ProtectedRoute path="/me" component={Profile} exact />
           <ProtectedRoute path="/me/update" component={UpdateProfile} exact/>
           <ProtectedRoute path="/password/update" component={UpdatePassword} exact/>
+          <Route path="/cart" component={Cart} exact />
 
           
 
