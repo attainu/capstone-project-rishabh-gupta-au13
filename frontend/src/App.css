@@ -495,7 +495,7 @@ footer {
 
 .sidebar-wrapper {
   display: flex;
-  width: 100%;
+  width: 150px;
   align-items: stretch;
   min-height: 100vh;
   font-weight: normal;

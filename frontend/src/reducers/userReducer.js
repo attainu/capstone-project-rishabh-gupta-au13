@@ -42,7 +42,7 @@ export const authReducer = (state = { user: {} }, action) => {
         case LOAD_USER_SUCCESS:
             return {
                 ...state,
-                loadingL: false,
+                loading: false,
                 isAuthenticated: true,
                 user:action.payload
             }

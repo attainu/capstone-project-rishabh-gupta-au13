@@ -5,15 +5,31 @@ import MetaData from "../layout/MetaData";
 import { useAlert } from "react-alert";
 
 import { useDispatch, useSelector } from "react-redux";
-import addItemToCart from "../../actions/cartActions";
+import { addItemTocart } from "../../actions/cartActions";
 
-const Cart = ({history}) => {
-  const dispatch = useDispatch();
-  const { cartItems } = useSelector((state) => state.cart);
+const Cart = () => {
+    const dispatch = useDispatch();
+    const { cartItems } = useSelector(state => state.cart);
 
-  const checkoutHandler=()=>{
-      history.push('/login?redirect=shipping')
-  }
+    const increaseQty = (id, quantity, stock) => {
+        const newQty = quantity + 1;
+
+        if (newQty > stock) return;
+
+        dispatch(addItemTocart(id, newQty))
+    }
+
+    const decreaseQty = (id, quantity) => {
+
+        const newQty = quantity - 1;
+
+        if (newQty < 0) return;
+
+        dispatch(addItemTocart(id, newQty))
+
+    }
+
+    
   return (
     <Fragment>
       <MetaData title={"Your Cart"} />
@@ -23,7 +39,7 @@ const Cart = ({history}) => {
       ) : (
         <Fragment>
         <div class="container container-fluid">
-        <h2 class="mt-5">Your Cart: <b>{cartItems.length}</b></h2>
+        <h2 class="mt-5">Your Cart: <b>{cartItems.length}items</b></h2>
         
         <div class="row d-flex justify-content-between">
             <div class="col-12 col-lg-8">
@@ -46,12 +62,13 @@ const Cart = ({history}) => {
                         </div>
 
                         <div class="col-4 col-lg-3 mt-4 mt-lg-0">
-                            <div class="stockCounter d-inline">
-                                <span class="btn btn-danger minus">-</span>
-                                <input type="number" class="form-control count d-inline" value="1" readOnly />
+                        <div className="stockCounter d-inline">
+                                <span className="btn btn-danger minus" onClick={() => decreaseQty(item.product, item.quantity)}>-</span>
 
-								<span class="btn btn-primary plus">+</span>
-                            </div>
+                                <input type="number" className="form-control count d-inline" value={item.quantity} readOnly />
+
+                                <span className="btn btn-primary plus" onClick={() => increaseQty(item.product, item.quantity, item.stock)}>+</span>
+                                </div>
                         </div>
 
                         <div class="col-4 col-lg-1 mt-4 mt-lg-0">
@@ -74,7 +91,7 @@ const Cart = ({history}) => {
                     <p>Est. total: <span class="order-summary-values">$765.56</span></p>
     
                     <hr />
-                    <button id="checkout_btn" class="btn btn-primary btn-block" onClick={checkoutHandler}>Check out</button>
+                    <button id="checkout_btn" class="btn btn-primary btn-block">Check out</button>
                 </div>
             </div>
         </div>
