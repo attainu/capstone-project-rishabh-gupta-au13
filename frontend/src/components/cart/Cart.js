@@ -7,9 +7,13 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import addItemToCart from "../../actions/cartActions";
 
-const Cart = () => {
+const Cart = ({history}) => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+
+  const checkoutHandler=()=>{
+      history.push('/login?redirect=shipping')
+  }
   return (
     <Fragment>
       <MetaData title={"Your Cart"} />
@@ -70,7 +74,7 @@ const Cart = () => {
                     <p>Est. total: <span class="order-summary-values">$765.56</span></p>
     
                     <hr />
-                    <button id="checkout_btn" class="btn btn-primary btn-block">Check out</button>
+                    <button id="checkout_btn" class="btn btn-primary btn-block" onClick={checkoutHandler}>Check out</button>
                 </div>
             </div>
         </div>
