@@ -5,7 +5,7 @@ import Loader from "../layout/loader";
 import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
-    console.log("hello")
+    // console.log("hello")
   return (
     <Fragment>
       <div className="row">

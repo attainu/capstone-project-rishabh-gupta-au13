@@ -3,6 +3,7 @@ const Product=require("../models/product")
 const ErrorHandler=require('../utils/errorHandler')
 const  catchAsyncErrors=require('../middlewares/catchAsyncError')
 const APIfeatures=require('../utils/apiFeature')
+const product = require("../models/product")
 
 
 // Create new product => /api/v1/admin/product/new
@@ -38,6 +39,14 @@ exports.getProducts= catchAsyncErrors(async (req,res,next)=>{
         count:products.length,
         productCount,
         resPerPage,
+        products,
+        
+    })
+})
+// Get all products (Admin) => api/v1/admin/products
+exports.getAdminProducts= catchAsyncErrors(async (req,res,next)=>{
+    const  products=await Product.find();
+    res.status(200).json({
         products,
         
     })

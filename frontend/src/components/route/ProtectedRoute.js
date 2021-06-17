@@ -20,7 +20,7 @@ const ProtectedRoute = ({isAdmin,component:Component,...rest}) => {
                     
                             return <Redirect to='/'/>
                         }
-                        console.log("heloo this is protected routes")
+                        // console.log("heloo this is protected routes")
                         return <Component {...props}/>
                     }}
                 />
