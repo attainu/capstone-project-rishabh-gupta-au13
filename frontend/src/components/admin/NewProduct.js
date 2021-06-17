@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { newProduct, clearErrors } from "../../actions/productActions";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
 
-const NewProduct = (history) => {
+const NewProduct = ({history}) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");

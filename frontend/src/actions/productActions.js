@@ -12,8 +12,11 @@ import {
   ADMIN_PRODUCTS_FAIL,
   NEW_PRODUCT_REQUEST,
   NEW_PRODUCT_SUCCESS,
-  NEW_PRODUCT_RESET,
   NEW_PRODUCT_FAIL,
+  DELETE_PRODUCT_REQUEST,
+  DELETE_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_RESET,
+  DELETE_PRODUCT_FAIL,
 } from "../constants/productConstants";
 
 export const getProducts =
@@ -63,6 +66,7 @@ export const getProductDetails = (id) => async (dispatch) => {
 export const newProduct = (productData) => async (dispatch) => {
   try {
 
+    
       dispatch({ type: NEW_PRODUCT_REQUEST })
 
       const config = {
@@ -72,6 +76,7 @@ export const newProduct = (productData) => async (dispatch) => {
       }
 
       const { data } = await axios.post(`/api/v1/admin/product/new`, productData, config)
+      // console.log(data)
 
       dispatch({
           type: NEW_PRODUCT_SUCCESS,
@@ -107,6 +112,26 @@ export const getAdminProducts = () => async (dispatch) => {
       });
     }
   };
+  // Admin delete
+  export const deleteProduct = (id) => async (dispatch) => {
+    try {
+
+        dispatch({ type: DELETE_PRODUCT_REQUEST })
+
+        const { data } = await axios.delete(`/api/v1/admin/product/${id}`)
+
+        dispatch({
+            type: DELETE_PRODUCT_SUCCESS,
+            payload: data.success
+        })
+
+    } catch (error) {
+        dispatch({
+            type: DELETE_PRODUCT_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
 
 //clear errors
 export const clearErrors = () => async (dispatch) => {
