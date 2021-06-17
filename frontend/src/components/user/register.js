@@ -34,6 +34,8 @@ const Register = (history) => {
         
     },[dispatch,alert,isAuthenticated,error,history])
 
+    
+
     const submitHandler = (e) => {
         e.preventDefault();
         const formData = new FormData();
