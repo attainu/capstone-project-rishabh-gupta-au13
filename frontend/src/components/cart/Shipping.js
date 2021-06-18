@@ -4,7 +4,7 @@ import {countries} from "countries-list"
 import MetaData from "../layout/MetaData";
 import CheckoutSteps from "./CheckoutSteps";
 import { useDispatch, useSelector } from "react-redux";
-import { saveShippingInfo} from "../../actions/cartActions";
+import { saveShippingInfo } from "../../actions/cartActions";
 
 const Shipping = ({history}) => {
     const countriesList=Object.values(countries)
@@ -20,7 +20,7 @@ const Shipping = ({history}) => {
      const submitHandler=(e)=>{
          e.preventDefault()
          dispatch(saveShippingInfo({address,city,postalCode,phoneNo,country}))
-         history.push('/confirm')
+         history.push('/order/confirm')
      }
 
     return (
