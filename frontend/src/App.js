@@ -12,7 +12,6 @@ import UpdateProfile from './components/user/UpdateProfile';
 import UpdatePassword from './components/user/UpdatePassword';
 import ForgotPassword from './components/user/ForgotPasswordd';
 
-
 // Dashboard imports
 import Dashboard from './components/admin/Dashboard';
 import ProductsList from './components/admin/ProductsList';
@@ -47,9 +46,7 @@ function App() {
           <ProtectedRoute path="/password/update" component={UpdatePassword} exact/>
           <ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact/>
           <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact/>
-          <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>
-          
-
+          <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>       
           
 
 
