@@ -89,6 +89,7 @@ export const loadUser = () => async (dispatch) => {
 
        
         const {data} =await axios.post('/api/v1/me')
+        // console.log(data)
 
         dispatch({
             type: LOAD_USER_SUCCESS,

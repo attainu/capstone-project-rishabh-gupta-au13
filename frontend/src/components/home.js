@@ -17,7 +17,7 @@ const Home = ({match}) => {
   const { products, error, productCount, loading, resPerPage } = useSelector(
     (state) => state.products
   );
-//   console.log(productCount)
+  // console.log(productCount)
 
 const keyword=match.params.keyword
 

@@ -4,9 +4,14 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/footer'
 import Home from './components/home'
 import ProductsDetails from './components/product/productDetails'
+
+
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
 import ConfirmOrder from './components/cart/confirmorder';
+import Payment from './components/cart/Payment';
+
+
 import Login from './components/user/Login'
 import Register from './components/user/register';
 import Profile from './components/user/profile';
@@ -25,6 +30,9 @@ import { loadUser } from './actions/userActions'
 import store from './store'
 
 import axios from "axios"
+// Payment
+import {Elements} from "@stripe/react-stripe-js"
+import {loadStripe} from "@stripe/stripe-js"
 
 
 function App() {
@@ -36,7 +44,8 @@ function App() {
 
     async function getStripeApiKey(){
       const {data}= await axios.get('/api/v1/stripeapi');
-      stripeApiKey(data.stripeApiKey)
+      console.log(data)
+      setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()
   }, [])
@@ -61,10 +70,11 @@ function App() {
           <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>
           <ProtectedRoute path="/shipping"  component={Shipping} />
           <ProtectedRoute path="/order/confirm"  component={ConfirmOrder} />
-
-          
-
-
+          {stripeApiKey &&
+          <Elements stripe={loadStripe(stripeApiKey)}>
+            <ProtectedRoute path="/payment" component={Payment}/>
+          </Elements>
+          }
         </div>
         <Footer/>
       </div>
