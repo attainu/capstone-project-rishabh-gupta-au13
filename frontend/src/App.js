@@ -6,6 +6,7 @@ import Home from './components/home'
 import ProductsDetails from './components/product/productDetails'
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
+import ConfirmOrder from './components/cart/confirmorder';
 import Login from './components/user/Login'
 import Register from './components/user/register';
 import Profile from './components/user/profile';
@@ -49,6 +50,7 @@ function App() {
           <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductsList} exact/>
           <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact/>
           <ProtectedRoute path="/shipping"  component={Shipping} />
+          <ProtectedRoute path="/order/confirm"  component={ConfirmOrder} />
 
           
 
