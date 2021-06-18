@@ -34,6 +34,9 @@ const Cart = ({ history }) => {
         dispatch(addItemToCart(id, newQty))
 
     }
+    const checkoutHandler=()=>{
+        history.push('/login?redirect=shipping')
+    }
     
   return (
     <Fragment>
@@ -94,7 +97,10 @@ const Cart = ({ history }) => {
                     <p>Est. total: <span class="order-summary-values">${cartItems.reduce((acc,item)=>acc+ item.quantity*item.price,0).toFixed(2)}</span></p>
     
                     <hr />
-                    <button id="checkout_btn" class="btn btn-primary btn-block">Check out</button>
+                    <button
+                     id="checkout_btn"
+                      class="btn btn-primary btn-block"
+                      onClick={checkoutHandler}>Check out</button>
                 </div>
             </div>
         </div>
