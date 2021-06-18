@@ -90,8 +90,8 @@ const Cart = ({ history }) => {
                 <div id="order_summary">
                     <h4>Order Summary</h4>
                     <hr />
-                    <p>Subtotal:  <span class="order-summary-values">3 (Units)</span></p>
-                    <p>Est. total: <span class="order-summary-values">$765.56</span></p>
+                    <p>Subtotal:  <span class="order-summary-values">{cartItems.reduce((acc,item)=>(acc+Number(item.quantity)),0)} (Units)</span></p>
+                    <p>Est. total: <span class="order-summary-values">${cartItems.reduce((acc,item)=>acc+ item.quantity*item.price,0).toFixed(2)}</span></p>
     
                     <hr />
                     <button id="checkout_btn" class="btn btn-primary btn-block">Check out</button>
