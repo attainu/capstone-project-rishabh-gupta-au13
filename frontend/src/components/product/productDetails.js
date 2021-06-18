@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect,useState } from 'react'
 import { Carousel } from 'react-bootstrap'
 import MetaData from '../layout/MetaData'
-import { addItemTocart } from '../../actions/cartActions'
+import { addItemToCart } from '../../actions/cartActions'
 
 
 
@@ -30,7 +30,7 @@ const ProductsDetails = ({match}) => {
     }, [dispatch, alert, error, match.params.id])
 
     const addToCart=()=>{
-        dispatch(addItemTocart(match.params.id,quantity))
+        dispatch(addItemToCart(match.params.id,quantity))
         alert.success('Item Added To cart')
 
     }

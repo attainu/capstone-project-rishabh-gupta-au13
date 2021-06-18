@@ -29,13 +29,12 @@ import {
 
 export const login = (email, password) => async (dispatch) => {
     try {
-        dispatch({
-            type: LOGIN_REQUEST,
-            
-        })
+
+        dispatch({ type: LOGIN_REQUEST })
+
         const config = {
             headers: {
-                'Content-type':'application/json'
+                'Content-Type': 'application/json'
             }
         }
 
@@ -43,12 +42,13 @@ export const login = (email, password) => async (dispatch) => {
 
         dispatch({
             type: LOGIN_SUCCESS,
-            payload:data.user
+            payload: data.user
         })
+
     } catch (error) {
         dispatch({
             type: LOGIN_FAIL,
-            payload:error.response.data.message
+            payload: error.response.data.message
         })
     }
 }
