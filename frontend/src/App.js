@@ -42,12 +42,12 @@ function App() {
   useEffect(() => {
     store.dispatch(loadUser())
 
-    async function getStripeApiKey(){
+    async function getStripApiKey(){
       const {data}= await axios.get('/api/v1/stripeapi');
       console.log(data)
       setStripeApiKey(data.stripeApiKey)
     }
-    getStripeApiKey()
+    getStripApiKey()
   }, [])
   
   return (
@@ -71,9 +71,9 @@ function App() {
           <ProtectedRoute path="/shipping"  component={Shipping} />
           <ProtectedRoute path="/order/confirm"  component={ConfirmOrder} />
           {stripeApiKey &&
-          <Elements stripe={loadStripe(stripeApiKey)}>
-            <ProtectedRoute path="/payment" component={Payment}/>
-          </Elements>
+            <Elements stripe={loadStripe(stripeApiKey)}>
+              <ProtectedRoute path="/payment" component={Payment} />
+            </Elements>
           }
         </div>
         <Footer/>

@@ -25,6 +25,7 @@ const options = {
     }
 }
 
+
 const Payment = ({ history }) => {
   const alert = useAlert();
   const stripe = useStripe();
@@ -34,7 +35,7 @@ const Payment = ({ history }) => {
   const { user } = useSelector((state) => state.auth);
   const { cartItems, shippingInfo } = useSelector((state) => state.cart);
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
   console.log('hello2')
 
   return (

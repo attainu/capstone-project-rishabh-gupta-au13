@@ -83,22 +83,20 @@ export const register = (userData) => async (dispatch) => {
 //load user
 export const loadUser = () => async (dispatch) => {
     try {
-        dispatch({
-            type: LOAD_USER_REQUEST          
-        })
 
-       
-        const {data} =await axios.post('/api/v1/me')
-        // console.log(data)
+        dispatch({ type: LOAD_USER_REQUEST })
+
+        const { data } = await axios.get('/api/v1/me')
 
         dispatch({
             type: LOAD_USER_SUCCESS,
-            payload:data.user
+            payload: data.user
         })
+
     } catch (error) {
         dispatch({
             type: LOAD_USER_FAIL,
-            payload:error.response.data.message
+            payload: error.response.data.message
         })
     }
 }
@@ -112,7 +110,7 @@ export const logout = () => async (dispatch) => {
         })
 
        
-       await axios.post('/api/v1/logout')
+       await axios.get('/api/v1/logout')
 
         dispatch({
             type: LOGOUT_SUCCESS,
