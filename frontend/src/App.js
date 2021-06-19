@@ -37,17 +37,19 @@ import {loadStripe} from "@stripe/stripe-js"
 
 function App() {
 
-  const [stripeApiKey,setStripeApiKey]=useState('')
+  const [stripeApiKey, setStripeApiKey] = useState('');
 
   useEffect(() => {
     store.dispatch(loadUser())
 
-    async function getStripApiKey(){
-      const {data}= await axios.get('/api/v1/stripeapi');
-      console.log(data)
+    async function getStripApiKey() {
+      const { data } = await axios.get('/api/v1/stripeapi');
+
       setStripeApiKey(data.stripeApiKey)
     }
-    getStripApiKey()
+
+    getStripApiKey();
+
   }, [])
   
   return (
@@ -75,6 +77,7 @@ function App() {
               <ProtectedRoute path="/payment" component={Payment} />
             </Elements>
           }
+
         </div>
         <Footer/>
       </div>

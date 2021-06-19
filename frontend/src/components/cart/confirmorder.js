@@ -70,9 +70,6 @@ const ConfirmOrder = ({ history }) => {
                             <hr />
                         </Fragment>
                     ))}
-
-
-
                 </div>
 
                 <div className="col-12 col-lg-3 my-4">

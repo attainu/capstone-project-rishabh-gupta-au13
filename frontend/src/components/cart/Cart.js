@@ -38,9 +38,6 @@ const Cart = ({ history }) => {
         history.push('/login?redirect=shipping')
     }
     
-    const checkOutHandler = () => {
-        history.push('/login?redirect=shipping')
-    }
   return (
     <Fragment>
         <MetaData title={'Your Cart'} />
