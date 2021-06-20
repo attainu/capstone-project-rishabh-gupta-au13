@@ -8,7 +8,7 @@ import ProductsDetails from './components/product/productDetails'
 
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
-import ConfirmOrder from './components/cart/confirmorder';
+import ConfirmOrder from './components/cart/ConfirmOrder';
 import Payment from './components/cart/Payment';
 
 
@@ -44,6 +44,7 @@ function App() {
 
     async function getStripApiKey() {
       const { data } = await axios.get('/api/v1/stripeapi');
+      console.log(data.stripeApiKey)
 
       setStripeApiKey(data.stripeApiKey)
     }
