@@ -49,6 +49,7 @@ const Payment = ({ history }) => {
     shippingInfo
   }
   const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'));
+  // console.log(orderInfo)
   if (orderInfo) {
     order.itemsPrice = orderInfo.itemsPrice
     order.shippingPrice = orderInfo.shippingPrice
@@ -58,6 +59,7 @@ const Payment = ({ history }) => {
   const paymentData = {
       amount: Math.round(orderInfo.totalPrice * 100)
   }
+  // console.log(paymentData)
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -72,6 +74,7 @@ const Payment = ({ history }) => {
         }
       }
       res = await axios.post('/api/v1/payment/process', paymentData, config)
+      // console.log(res.data)
       const clientSecret = res.data.client_secret;
 
       if (!stripe || !elements) {
@@ -89,6 +92,7 @@ const Payment = ({ history }) => {
       });
       if (result.error) {
         alert.error(result.error.message);
+        // console.log("line number 93")
         document.querySelector('#pay_btn').disabled = false;
       } else {
         //
@@ -100,14 +104,17 @@ const Payment = ({ history }) => {
           dispatch(createOrder(order))
           history.push('/success')
         }else {
+          console.log("line number 105")
           alert.error('There is some issue while payment processing')
         }
       }
     
     } catch (error) {
         document.querySelector('#pay_btn').disabled = false;
+        console.log(error)
         alert.error(error.response.data.message)
-    }
+      }
+        
   }
 
   return (
