@@ -4,6 +4,10 @@ const cookieParser=require('cookie-parser')
 const errorMiddleware=require('./middlewares/errors')
 app.use(express.json());
 app.use(cookieParser())
+const dotenv = require('dotenv')
+
+// setting up config file
+dotenv.config({ path: './config.env' })
 
 // Import all routes
 
