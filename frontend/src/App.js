@@ -13,7 +13,9 @@ import Payment from './components/cart/Payment';
 import OrderSuccess from './components/cart/OrderSuccess';
 
 
+
 import ListOrders from './components/order/ListOrders';
+import OrderDetails from './components/order/OrderDetails';
 
 
 import Login from './components/user/Login'
@@ -84,6 +86,7 @@ function App() {
             </Elements>
           }
           <ProtectedRoute path="/orders/me"  component={ListOrders} />
+          <ProtectedRoute path="/order/:id/"  component={OrderDetails} />
 
         </div>
         <Footer/>
