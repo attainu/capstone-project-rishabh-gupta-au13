@@ -73,7 +73,6 @@ const Payment = ({ history }) => {
       }
       res = await axios.post('/api/v1/payment/process', paymentData, config)
       const clientSecret = res.data.client_secret;
-      console.log(clientSecret);
 
       if (!stripe || !elements) {
         return;
