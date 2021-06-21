@@ -6,6 +6,7 @@ import { register, clearErrors } from '../../actions/userActions'
 
 
 
+
 const Register = (history) => {
 
     const [user, setUser] = useState({
@@ -48,22 +49,8 @@ const Register = (history) => {
     }
 
     const onChange = e => {
-        if (e.target.name === 'avatar') {
-
-            const reader = new FileReader();
-
-            reader.onload = () => {
-                if (reader.readyState === 2) {
-                    setAvatarPreview(reader.result)
-                    setAvatar(reader.result)
-                }
-            }
-
-            reader.readAsDataURL(e.target.files[0])
-
-        } else {
-            setUser({ ...user, [e.target.name]: e.target.value })
-        }
+        setUser({[e.target.name]: e.target.value })
+        
     }
     return (
         <Fragment>

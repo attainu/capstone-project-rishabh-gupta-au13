@@ -6,15 +6,17 @@ import Loader from "../layout/loader";
 import Sidebar from "./Sidebar";
 
 import { getAdminProducts } from "../../actions/productActions";
+import { allOrders } from "../../actions/orderActions";
 
 const Dashboard = () => {
   // console.log("hello")
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
   const {  loading } = useSelector(state => state.products)
-
+  const{orders,totalAmount,Loading}=useSelector(state=>state.allOrders)
   useEffect(() => {
     dispatch(getAdminProducts());
+    dispatch(allOrders())
   }, [dispatch]);
 
   return (
@@ -36,7 +38,7 @@ const Dashboard = () => {
                     <div className="card-body">
                       <div className="text-center card-font-size">
                         Total Amount
-                        <br /> <b>$4567</b>
+                        <br /> <b>${totalAmount}</b>
                       </div>
                     </div>
                   </div>

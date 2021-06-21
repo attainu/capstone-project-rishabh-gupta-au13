@@ -29,7 +29,8 @@ import ForgotPassword from './components/user/ForgotPasswordd';
 import Dashboard from './components/admin/Dashboard';
 import ProductsList from './components/admin/ProductsList';
 import NewProduct from './components/admin/NewProduct';
-
+import OrdersList from './components/admin/OrderList';
+import ProcessOrder from './components/admin/ProcessOrder';
 
 import ProtectedRoute from './components/route/ProtectedRoute';
 import { loadUser } from './actions/userActions'
@@ -86,7 +87,10 @@ function App() {
             </Elements>
           }
           <ProtectedRoute path="/orders/me"  component={ListOrders} />
-          <ProtectedRoute path="/order/:id/"  component={OrderDetails} />
+          <ProtectedRoute path="/order/:id/" component={OrderDetails} />
+          <ProtectedRoute path="/admin/orders" isAdmin={true} component={OrdersList} exact/>
+          <ProtectedRoute path="/admin/order/:id" isAdmin={true} component={ProcessOrder} exact/>
+
 
         </div>
         <Footer/>
