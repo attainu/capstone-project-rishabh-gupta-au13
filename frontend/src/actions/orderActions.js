@@ -13,7 +13,9 @@ import {
   UPDATE_ORDER_REQUEST,
   UPDATE_ORDER_SUCCESS,
   UPDATE_ORDER_FAIL,
-  UPDATE_ORDER_RESET,
+  DELETE_ORDER_REQUEST,
+  DELETE_ORDER_SUCCESS,
+  DELETE_ORDER_FAIL,
   CLEAR_ERRORS,
   ORDER_DETAILS_REQUEST,
   ORDER_DETAILS_SUCCESS,
@@ -123,6 +125,27 @@ export const updateOrder = (id, orderData) => async (dispatch) => {
   } catch (error) {
       dispatch({
           type: UPDATE_ORDER_FAIL,
+          payload: error.response.data.message
+      })
+  }
+}
+
+// Delete order
+export const deleteOrder = (id) => async (dispatch) => {
+  try {
+
+      dispatch({ type: DELETE_ORDER_REQUEST })
+
+
+      const { data } = await axios.delete(`/api/v1/admin/order/${id}`)
+      dispatch({
+          type: DELETE_ORDER_SUCCESS,
+          payload: data.success
+      })
+
+  } catch (error) {
+      dispatch({
+          type: DELETE_ORDER_FAIL,
           payload: error.response.data.message
       })
   }
