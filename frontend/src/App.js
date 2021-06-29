@@ -86,8 +86,8 @@ function App() {
               <ProtectedRoute path="/payment" component={Payment} />
             </Elements>
           }
-          <ProtectedRoute path="/orders/me"  component={ListOrders} />
-          <ProtectedRoute path="/order/:id/" component={OrderDetails} />
+          {/* <ProtectedRoute path="/orders/me"  component={ListOrders} />
+          <ProtectedRoute path="/order/:id/" component={OrderDetails} /> */}
           <ProtectedRoute path="/admin/orders" isAdmin={true} component={OrdersList} exact/>
           <ProtectedRoute path="/admin/order/:id" isAdmin={true} component={ProcessOrder} exact/>
 
